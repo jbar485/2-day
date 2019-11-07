@@ -25,10 +25,10 @@
       <form>
         <div class="row">
           <div class="col names">
-            <input type="text" class="form-control" placeholder="Player 1">
+            <input type="text" class="form-control" id="playerOne" placeholder="Player 1">
           </div>
           <div class="col names">
-            <input type="text" class="form-control" placeholder="Player 2">
+            <input type="text" class="form-control" id="playerTwo"  placeholder="Player 2">
           </div>
         </div>
       </form>
@@ -40,15 +40,15 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title" id="player1Name">Player 1</h3>
+              <h3 class="card-title" id="player1Name"></h3>
               <div class="card border-danger mb-3 infoCenter" style="max-width: 18rem;">
                 <div class="card-body text-danger">
                   <h5 class="card-title">Current Score</h5>
-                  <p class="card-text"> content.</p>
+                  <p class="card-text" id="player1Current"></p>
                   <div class="card border-danger mb-3" style="max-width: 18rem;">
                     <div class="card-body text-danger">
                       <h5 class="card-title">Total Score</h5>
-                      <p class="card-text"> content.</p>
+                      <p class="card-text" id="player1Total"> content.</p>
                     </div>
                   </div>
                 </div>
@@ -61,7 +61,7 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title" id="player2Name">Player 2</h3>
+              <h3 class="card-title" id="player2Name"></h3>
               <div class="card border-info mb-3 infoCenter" style="max-width: 18rem;">
                 <div class="card-body text-info">
                   <h5 class="card-title">Current Score</h5>

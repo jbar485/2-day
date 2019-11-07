@@ -1,7 +1,7 @@
 // Buisiness Logic
 var player1 = "";
 var player2 = "";
-
+var currentPlayer = $("#playerOne").val();
 
 
 var dice = function () {
@@ -9,12 +9,15 @@ var dice = function () {
 
 }
 
+function Turn() {
+  this.turn = 0;
+}
+
 function Game(round) {
-  this.roll = 0;
-  this.currentScore = 0;
-  this.totalScore = 0;
-  this.turn = turn;
-  this.player;
+  this.roll = 0,
+  this.currentScore = 0,
+  this.totalScore = 0,
+  this.player
 }
 
 // what Happens if you roll a one
@@ -25,9 +28,16 @@ Game.prototype.one = function(){
   }else {
     this.currentScore += this.roll;
   }
+  if (turn.turn == player1) {
+    turn.turn = player2;
+
+  }
 }
 
-Game.prototype.hold = function() {
+Game.prototype.hold = function(event) {
+  if (currentPlayer === $("#playerOne").val()) {
+
+  }
   this.totalScore += this.currentScore;
   this.currentScore = 0;
   alert("Turn Over");
@@ -50,7 +60,7 @@ var clear = function() {
   $(".player1Name").val("");
   $(".player2Name").val("");
 }
-
+var turn = new Turn();
   // Game.prototype.switchPlayer = function() {
   //   if (this.allPLayers === 0) {
   //     this.allPlayers += 1
@@ -60,21 +70,41 @@ var clear = function() {
   // }
 
   // this.players[0].totalValue = 1;
+  var player1 = new Game();
+  var player2 = new Game();
 
   $(document).ready(function(){
     $("button#play").click(function(event){
       event.preventDefault();
-      // var player1 = new Game();
-      // var player2 = new Game();
       $("#startCard").hide();
       $("#gameCard").show();
+
+      var playerOne = $("#playerOne").val();
+      var playerTwo = $("#playerTwo").val();
+
+      $("#player1Name").text(playerOne);
+      $("#player2Name").text(playerTwo);
+
+      player1.player = playerOne;
+      player2.player = playerTwo;
+      turn.turn = player1;
+
+      console.log(player1, player2);
     });
 
-    $("#roll").click(function(){
-      alert("hello");
+
+    $("#roll").click(function(event){
+      console.log(turn.turn, player1);
+      if (turn.turn === player1) {
+        player1.roll = dice();
+        console.log(player1.roll);
+        $("#player1Current").text(player1.roll);
+        player1.one();
+        $("#player1Total").text(player1.currentScore);
+      }
     });
     $("#hold").click(function(){
-      alert("hello");
+      return hold();
     });
 
   });
