@@ -1,62 +1,80 @@
+// Buisiness Logic
+var player1 = "";
+var player2 = "";
 
-$(document).ready(function(){
 
-  var player2 = {totalValue: 0, currentValue: 0};
-  var player1 = {totalValue: 0, currentValue: 0};
-  var allPlayers = [player1,player2];
-  // Users array
-  var newGame = new Game(allPLayers);
-  newGame.rollDice()
 
-Game = function(){
-  this.players = []
-  // this.allPlayers = allPlayers
+var dice = function () {
+  return Math.floor(6 * Math.random()) + 1;
 
 }
 
-Game.prototype.addPlayers = function(input){
-
-  this.players.push(input);
-
-
+function Game(round) {
+  this.roll = 0;
+  this.currentScore = 0;
+  this.totalScore = 0;
+  this.turn = turn;
+  this.player;
 }
 
-var myjunk = new Game;
-
-myjunk.addPlayers(allPlayers);
-
-
-// function Game() {
-//   this.players = players;
-//   this.allPlayers = 0;
-// }
-
-Game.prototype.switchPlayer = function() {
-  if (this.allPLayers === 0) {
-    this.allPlayers += 1
+// what Happens if you roll a one
+Game.prototype.one = function(){
+  if (this.roll === 1) {
+    this.currentScore = 0;
+    alert("Sorry " + this.player + ", you rolled a 1! Your turn is over!")
   }else {
-    this.allPlayers -= 1
+    this.currentScore += this.roll;
   }
 }
 
-// this.players[0].totalValue = 1;
+Game.prototype.hold = function() {
+  this.totalScore += this.currentScore;
+  this.currentScore = 0;
+  alert("Turn Over");
+}
 
-Game.prototype.rollDice = function() {
-  var randomNumber = Math.floor(Math.random() * this.sides) + 1;
-  if (allPlayers[0] === true) {
-    this.currentValue += randomNumber;
-    console.log(this.currentValue);
-    }
-    console.log(currentValue);
+Game.prototype.win = function () {
+  if (this.totalScore >= 100) {
+    alert("you win")
   }
+}
 
+Game.prototype.newGame = function () {
+  this.roll = 0;
+  this.currentScore = 0;
+  this.totalScore = 0;
+  this.player = "";
+}
 
+var clear = function() {
+  $(".player1Name").val("");
+  $(".player2Name").val("");
+}
 
-$("#roll").click(function(){
+  // Game.prototype.switchPlayer = function() {
+  //   if (this.allPLayers === 0) {
+  //     this.allPlayers += 1
+  //   }else {
+  //     this.allPlayers -= 1
+  //   }
+  // }
 
-});
-$("#hold").click(function(){
-  alert("hello");
-});
+  // this.players[0].totalValue = 1;
 
-});
+  $(document).ready(function(){
+    $("button#play").click(function(event){
+      event.preventDefault();
+      // var player1 = new Game();
+      // var player2 = new Game();
+      $("#startCard").hide();
+      $("#gameCard").show();
+    });
+
+    $("#roll").click(function(){
+      alert("hello");
+    });
+    $("#hold").click(function(){
+      alert("hello");
+    });
+
+  });

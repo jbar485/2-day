@@ -2,3 +2,27 @@ h3 {
   text-align: center;
   text-decoration: underline;
 }
+
+.infoCenter {
+  text-align: center;
+}
+
+#gameCard {
+  display: none;
+}
+
+#startCard {
+  width: 100%;
+}
+
+.names {
+  margin: 20px;
+}
+
+.clickButtons {
+  margin: 20px;
+}
+
+.jumbotron {
+  margin-top: 20px;
+}

@@ -17,21 +17,64 @@
       <h1>Pig Dice Game</h1>
       <p>Have fun playing our game</p>
     </div>
-    <div class="card">
+    <div id="startCard" class="card text-white bg-warning infoCenter" >
+      <div class="card-header">Pig Dice Game</div>
+      <div class="card-body">
+        <p class="card-text">Players</p>
+      </div>
+      <form>
+        <div class="row">
+          <div class="col names">
+            <input type="text" class="form-control" placeholder="Player 1">
+          </div>
+          <div class="col names">
+            <input type="text" class="form-control" placeholder="Player 2">
+          </div>
+        </div>
+      </form>
+      <button type="button" id="play" class="btn btn-dark clickButtons">Play</button>
+
+    </div>
+    <div class="card" id="gameCard">
       <div class="row">
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title">Player Uno</h3>
-              <p class="card-text"></p>
+              <h3 class="card-title" id="player1Name">Player 1</h3>
+              <div class="card border-danger mb-3 infoCenter" style="max-width: 18rem;">
+                <div class="card-body text-danger">
+                  <h5 class="card-title">Current Score</h5>
+                  <p class="card-text"> content.</p>
+                  <div class="card border-danger mb-3" style="max-width: 18rem;">
+                    <div class="card-body text-danger">
+                      <h5 class="card-title">Total Score</h5>
+                      <p class="card-text"> content.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="card-text">ljl</p>
             </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title">Player Dos</h3>
-              <p class="card-text"></p>
+              <h3 class="card-title" id="player2Name">Player 2</h3>
+              <div class="card border-info mb-3 infoCenter" style="max-width: 18rem;">
+                <div class="card-body text-info">
+                  <h5 class="card-title">Current Score</h5>
+                  <p class="card-text"> content.</p>
+                  <div class="card border-info mb-3" style="max-width: 18rem;">
+                    <div class="card-body text-info">
+                      <h5 class="card-title">Total Score</h5>
+                      <p class="card-text"> content.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="card-text">sdvsd</p>
             </div>
           </div>
         </div>
